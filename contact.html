@@ -73,8 +73,18 @@
         </section>
 
         <section>
-        <form class="contact-form" action="https://formspree.io/f/mnjybbqv" method="POST">
-          <input type="hidden" name="_subject" value="New Everest Outsource contact form submission">
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify action="/contact?success=true">
+	  <div id="success-alert" style="display: none; color: green;">
+	    Thank you for your message.
+	  </div>
+<script>
+  // Check the URL parameters when the page loads
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    document.getElementById('success-alert').style.display = 'block';
+  }
+</script>
+          <input type="hidden" name="form-name" value="contact">
           <div class="form-row">
             <div>
               <label for="name">Full Name</label>
